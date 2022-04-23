@@ -5,7 +5,7 @@
       v-model="isDarkMode"
       checked-icon="dark_mode"
       unchecked-icon="wb_sunny"
-      :color="!isDarkMode ? '' : 'primary'"
+      :color="!isDarkMode ? '' : 'blue'"
       keep-color
       left-label
     />
