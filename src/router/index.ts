@@ -33,5 +33,10 @@ export default route<StateInterface>(function (/* { store, ssrContext } */) {
     ),
   });
 
+  Router.beforeEach((to, from, next) => {
+    const isAuthenticated = true;
+    if (to.name !== 'login' && !isAuthenticated) next({ name: 'login' })
+    else next()
+  })
   return Router;
 });
