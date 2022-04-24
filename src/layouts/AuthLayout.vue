@@ -2,7 +2,10 @@
   <q-layout view="lHr lpR lfr">
     <q-page-container>
       <div class="full-height">
-        <DarkModeSwitch />
+        <div class="flex justify-end">
+          <LanguageSwitch />
+          <DarkModeSwitch />
+        </div>
         <div class="flex justify-evenly">
           <router-view />
         </div>
@@ -13,10 +16,12 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import DarkModeSwitch from 'components/DarkModeSwitch.vue';
+import LanguageSwitch from 'components/LanguageSwitch.vue';
 export default defineComponent({
   name: 'AuthLayout',
   components: {
     DarkModeSwitch,
+    LanguageSwitch,
   },
 });
 </script>
