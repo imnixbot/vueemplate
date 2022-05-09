@@ -34,7 +34,7 @@ export default route<StateInterface>(function (/* { store, ssrContext } */) {
   });
 
   Router.beforeEach((to, from, next) => {
-    const isAuthenticated = true;
+    const isAuthenticated = false;
     if (to.name !== 'login' && !isAuthenticated) next({ name: 'login' })
     else next()
   })
