@@ -9,7 +9,7 @@ export const loginErrors = {
         label: 'Your age *',
         errors: {
             REQURED_AGE: 'Please type your age',
-            INVALID_AGE: 'Please type a real age'
+            INVALID_AGE: 'Please type your real age'
         }
     },
     terms: {

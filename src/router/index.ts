@@ -5,7 +5,7 @@ import {
   createWebHashHistory,
   createWebHistory,
 } from 'vue-router';
-import { StateInterface } from '../store';
+import { StateInterface } from '../types/states'
 import routes from './routes';
 
 /*
@@ -17,7 +17,7 @@ import routes from './routes';
  * with the Router instance.
  */
 
-export default route<StateInterface>(function (/* { store, ssrContext } */) {
+export default route<StateInterface>(function () {
   const createHistory = process.env.SERVER
     ? createMemoryHistory
     : (process.env.VUE_ROUTER_MODE === 'history' ? createWebHistory : createWebHashHistory);
@@ -33,10 +33,5 @@ export default route<StateInterface>(function (/* { store, ssrContext } */) {
     ),
   });
 
-  Router.beforeEach((to, from, next) => {
-    const isAuthenticated = false;
-    if (to.name !== 'login' && !isAuthenticated) next({ name: 'login' })
-    else next()
-  })
   return Router;
 });

@@ -39,13 +39,19 @@
 </template>
 
 <script>
+import { defineComponent } from 'vue';
 import { useQuasar } from 'quasar';
 import { ref } from 'vue';
-import { errorRequired, loginErrors } from '../../validation.messages';
-export default {
+import { errorRequired, loginErrors } from '../../validations';
+import { useStore } from 'src/store';
+import { useRouter } from 'vue-router'
+
+export default defineComponent({
+  name: 'LoginPage',
   setup() {
     const $q = useQuasar();
-
+    const router = useRouter()
+const $store = useStore()
     const name = ref(null);
     const age = ref(null);
     const accept = ref(false);
@@ -75,11 +81,13 @@ export default {
       },
 
       onReset() {
+        $store.commit('auth/setIsAuthenticated', true)
+        router.push({ name: 'app.home' })
         name.value = null;
         age.value = null;
         accept.value = false;
       },
     };
   },
-};
+});
 </script>
